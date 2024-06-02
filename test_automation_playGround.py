@@ -5,6 +5,7 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from LoginPage.login_page_test import LoginPage
 from AddNewCustomerPage.Add_new_customer_page import NewCustomer, FillNewCustomerFormPage
+from LogoutPage.Logout_Page_test import LogoutPage
 
 
 #
@@ -51,6 +52,7 @@ def test_new_customer_button_on_automation_play_ground_website(login):
     test_new_customer_page.click_new_customer()
 
 
+# Add new customer
 def test_fill_new_customer_form_on_automation_play_ground_website(login):
     test_fill_new_customer_form_page = FillNewCustomerFormPage(login.driver)
     test_fill_new_customer_form_page.enter_email_address("test@gmail.com")
@@ -61,3 +63,9 @@ def test_fill_new_customer_form_on_automation_play_ground_website(login):
     test_fill_new_customer_form_page.Select_state()
     test_fill_new_customer_form_page.select_gender()
     test_fill_new_customer_form_page.click_submit_button()
+
+
+# logout button
+def test_logot_button_on_automation_play_ground_website(login):
+    test_new_customer_page = LogoutPage(login.driver)
+    test_new_customer_page.click_logout_button()

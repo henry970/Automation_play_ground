@@ -115,28 +115,6 @@ class FillNewCustomerFormPage:
             self.logger.error(f"Failed to select gender - {e}")
             self._take_screenshot("select_gender")
 
-    # def Select_gender(self):
-    #     try:
-    #         Select_gender = WebDriverWait(self.driver, 20).until(
-    #             EC.element_to_be_clickable(FillNewCustomerFormPageLocators.SELECT_GENDER))
-    #         Select_gender.click()
-    #         self.logger.info("Select gender")
-    #         time.sleep(5)
-    #     except (TimeoutException, NoSuchElementException) as e:
-    #         self.logger.error(f"Failed to Select gender - {e}")
-    #         self._take_screenshot("Select_gender")
-
-    # def click_submit_button(self):
-    #     try:
-    #         click_submit_button = WebDriverWait(self.driver, 20).until(
-    #             EC.element_to_be_clickable(FillNewCustomerFormPageLocators.CLICK_SUBMIT_BUTTON))
-    #         click_submit_button.click()
-    #         self.logger.info("Clicked submit button")
-    #         time.sleep(5)
-    #     except (TimeoutException, NoSuchElementException) as e:
-    #         self.logger.error(f"Failed to click submit button - {e}")
-    #         self._take_screenshot("click_submit_button")
-
     def click_submit_button(self):
         try:
             # Scroll down to the submit button
