@@ -40,6 +40,7 @@ def login(driver_setup):
     return login_page
 
 
+# login page
 def test_login_page_on_automation_play_ground_website(login):
     login.enter_email_address("Henryokolie@gmail.com")
     login.enter_password("test123@")
