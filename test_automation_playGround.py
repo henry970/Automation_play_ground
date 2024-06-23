@@ -8,7 +8,7 @@ from AddNewCustomerPage.Add_new_customer_page import NewCustomer, FillNewCustome
 from LogoutPage.Logout_Page_test import LogoutPage
 
 
-#
+
 @pytest.fixture(scope="module")
 def driver_setup():
     chrome_options = Options()
