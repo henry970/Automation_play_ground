@@ -6,7 +6,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from LoginPage.login_page_test import LoginPage
 from AddNewCustomerPage.Add_new_customer_page import NewCustomer, FillNewCustomerFormPage
 from LogoutPage.Logout_Page_test import LogoutPage
-
+from config.config import Config
 
 
 @pytest.fixture(scope="module")
@@ -23,27 +23,19 @@ def driver_setup():
     driver.quit()
 
 
-# @pytest.fixture(scope="module")
-# def driver_setup():
-#     driver = webdriver.Chrome()
-#     driver.implicitly_wait(20)
-#     driver.maximize_window()
-#     yield driver
-#     driver.quit()
-
 
 @pytest.fixture(scope="module")
 def login(driver_setup):
     driver = driver_setup
     login_page = LoginPage(driver)
-    login_page.open_login_page("https://automationplayground.com/crm/login.html")
+    login_page.open_login_page(Config.BASE_URL)
     return login_page
 
 
 # login page
 def test_login_page_on_automation_play_ground_website(login):
-    login.enter_email_address("Henryokolie@gmail.com")
-    login.enter_password("test123@")
+    login.enter_email_address(Config.USERNAME)
+    login.enter_password(Config.PASSWORD)
     login.click_remember_me_button()
     login.click_login_button()
 
@@ -56,10 +48,10 @@ def test_new_customer_button_on_automation_play_ground_website(login):
 # Add new customer
 def test_fill_new_customer_form_on_automation_play_ground_website(login):
     test_fill_new_customer_form_page = FillNewCustomerFormPage(login.driver)
-    test_fill_new_customer_form_page.enter_email_address("test@gmail.com")
-    test_fill_new_customer_form_page.enter_firstName("Henry")
-    test_fill_new_customer_form_page.enter_LastName("Okolie")
-    test_fill_new_customer_form_page.enter_city("Arizona")
+    test_fill_new_customer_form_page.enter_email_address(Config.EMAIL_ADDRESS)
+    test_fill_new_customer_form_page.enter_firstName(Config.FIRST_NAME)
+    test_fill_new_customer_form_page.enter_LastName(Config.LAST_NAME)
+    test_fill_new_customer_form_page.enter_city(Config.CITY)
     test_fill_new_customer_form_page.click_state_drop_down_button()
     test_fill_new_customer_form_page.Select_state()
     test_fill_new_customer_form_page.select_gender()
